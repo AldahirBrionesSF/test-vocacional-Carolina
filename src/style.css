@@ -1,8 +1,9 @@
 :root {
-  --azul: #1b2a6b;
-  --azul-2: #2d43a8;
-  --oro: #f4b63f;
-  --tinta: #141a33;
+  /* Colores Universidad Carolina */
+  --azul: #24346c;
+  --azul-2: #e11f1c;   /* rojo institucional (acentos) */
+  --oro: #e11f1c;      /* anillo / opción que se está viendo */
+  --tinta: #1a2347;
   --gris: #6b7190;
   --fondo: #f5f6fb;
   --ok: #22a55b;
@@ -78,7 +79,7 @@ h2 { font-size: 21px; line-height: 1.25; }
   background: #fff; border: 2px solid transparent; border-radius: 14px; padding: 10px 12px; font-size: 16px; color: var(--tinta);
   transition: border-color .15s, background .15s; cursor: pointer;
 }
-.opcion b { flex: none; width: 36px; height: 36px; border-radius: 10px; background: #e6e9f7; color: var(--azul); display: grid; place-items: center; font-size: 18px; }
+.opcion b { flex: none; width: 36px; height: 36px; border-radius: 10px; background: #e8ebf4; color: var(--azul); display: grid; place-items: center; font-size: 18px; }
 .opcion.viendo { border-color: var(--oro); }
 .opcion.elegida { border-color: var(--ok); background: #eaf8f0; }
 .opcion.elegida b { background: var(--ok); color: #fff; }
@@ -86,6 +87,12 @@ h2 { font-size: 21px; line-height: 1.25; }
 /* Resultado */
 #listaCarreras { display: grid; gap: 10px; }
 .carrera { background: #fff; border-radius: 14px; padding: 14px 16px; box-shadow: 0 1px 3px rgb(0 0 0 / .06); }
-.carrera small { display: inline-block; font-size: 12px; font-weight: 700; color: var(--azul-2); background: #e6e9f7; padding: 2px 8px; border-radius: 6px; margin-bottom: 4px; }
+.carrera small { display: inline-block; font-size: 12px; font-weight: 700; color: var(--azul-2); background: #e8ebf4; padding: 2px 8px; border-radius: 6px; margin-bottom: 4px; }
 .carrera p { font-size: 16px; font-weight: 600; }
 .grupo { font-size: 14px; color: var(--gris); margin-top: 6px; }
+
+/* Logo en pantalla de inicio */
+.logo { display: block; width: 130px; height: auto; margin: 0 auto 4px; }
+#inicio .eyebrow { text-align: center; }
+#inicio h1 { text-align: center; }
+.btn { box-shadow: 0 4px 12px rgb(36 52 108 / .25); }
