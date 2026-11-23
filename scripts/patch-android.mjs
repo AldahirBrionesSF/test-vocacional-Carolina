@@ -1,5 +1,5 @@
 // Agrega el permiso de cámara al AndroidManifest generado por Capacitor.
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, cpSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -16,3 +16,10 @@ for (const p of perms) {
 }
 writeFileSync(manifest, xml);
 console.log("✔ Permiso de cámara agregado al AndroidManifest.xml");
+
+// Ícono y splash con el logo de la Universidad Carolina
+const res = join(root, "resources/android/res");
+if (existsSync(res)) {
+  cpSync(res, join(root, "android/app/src/main/res"), { recursive: true });
+  console.log("✔ Ícono y splash de la Universidad Carolina copiados");
+}
