@@ -1,0 +1,6 @@
+node_modules/
+dist/
+public/wasm/
+android/app/build/
+android/build/
+android/.gradle/

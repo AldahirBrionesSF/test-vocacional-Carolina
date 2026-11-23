@@ -1,0 +1,91 @@
+:root {
+  --azul: #1b2a6b;
+  --azul-2: #2d43a8;
+  --oro: #f4b63f;
+  --tinta: #141a33;
+  --gris: #6b7190;
+  --fondo: #f5f6fb;
+  --ok: #22a55b;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--tinta);
+}
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; background: var(--fondo); }
+body { overscroll-behavior: none; -webkit-tap-highlight-color: transparent; }
+
+.pantalla { display: none; min-height: 100dvh; }
+.pantalla.activa { display: flex; flex-direction: column; }
+
+.contenido {
+  flex: 1; display: flex; flex-direction: column; gap: 18px;
+  padding: calc(env(safe-area-inset-top) + 32px) 24px calc(env(safe-area-inset-bottom) + 24px);
+  max-width: 520px; margin: 0 auto; width: 100%;
+}
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--azul-2); }
+h1 { font-size: 34px; line-height: 1.1; color: var(--azul); }
+h1 span { color: var(--azul-2); font-weight: 600; }
+h2 { font-size: 21px; line-height: 1.25; }
+.lead { font-size: 17px; color: var(--gris); line-height: 1.45; }
+.tip, .estado { font-size: 14px; color: var(--gris); text-align: center; }
+
+.senas { display: grid; gap: 10px; }
+.sena {
+  display: flex; align-items: center; gap: 14px; background: #fff;
+  border-radius: 14px; padding: 12px 14px; box-shadow: 0 1px 3px rgb(0 0 0 / .06);
+}
+.sena b {
+  flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  background: var(--azul); color: #fff; font-size: 22px;
+}
+.sena span { font-size: 15px; }
+
+.btn {
+  margin-top: auto; border: 0; border-radius: 14px; padding: 17px; font-size: 18px; font-weight: 700;
+  background: var(--azul); color: #fff; cursor: pointer;
+}
+.btn:disabled { opacity: .6; }
+
+/* Test */
+#test { background: #000; }
+.camara { position: relative; flex: 1; min-height: 45dvh; overflow: hidden; }
+.camara video, .camara canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1);
+}
+.detectada {
+  position: absolute; top: calc(env(safe-area-inset-top) + 14px); left: 50%; translate: -50% 0;
+  width: 92px; height: 92px; display: grid; place-items: center;
+}
+.detectada svg { position: absolute; inset: 0; rotate: -90deg; }
+.pista { fill: rgb(0 0 0 / .45); stroke: rgb(255 255 255 / .25); stroke-width: 7; }
+.anillo { fill: none; stroke: var(--oro); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 276.5; stroke-dashoffset: 276.5; }
+.detectada span { position: relative; font-size: 40px; font-weight: 800; color: #fff; }
+.detectada.lista .anillo { stroke: var(--ok); }
+
+.debug-btn { position: absolute; right: 12px; top: calc(env(safe-area-inset-top) + 12px); background: rgb(0 0 0 / .4); border: 0; border-radius: 10px; font-size: 18px; padding: 6px 8px; }
+.debug { position: absolute; left: 8px; bottom: 8px; color: #0f0; background: rgb(0 0 0 / .6); font-size: 11px; padding: 6px; border-radius: 6px; }
+.oculto { display: none; }
+
+.panel {
+  background: var(--fondo); border-radius: 22px 22px 0 0; margin-top: -22px; position: relative;
+  padding: 18px 20px calc(env(safe-area-inset-bottom) + 18px); display: flex; flex-direction: column; gap: 10px;
+}
+.progreso { height: 6px; background: #dde0ee; border-radius: 3px; overflow: hidden; }
+#barra { height: 100%; width: 0; background: var(--azul-2); transition: width .3s; }
+
+.opciones { display: grid; gap: 8px; margin-top: 4px; }
+.opcion {
+  display: flex; align-items: center; gap: 12px; text-align: left; width: 100%;
+  background: #fff; border: 2px solid transparent; border-radius: 14px; padding: 10px 12px; font-size: 16px; color: var(--tinta);
+  transition: border-color .15s, background .15s; cursor: pointer;
+}
+.opcion b { flex: none; width: 36px; height: 36px; border-radius: 10px; background: #e6e9f7; color: var(--azul); display: grid; place-items: center; font-size: 18px; }
+.opcion.viendo { border-color: var(--oro); }
+.opcion.elegida { border-color: var(--ok); background: #eaf8f0; }
+.opcion.elegida b { background: var(--ok); color: #fff; }
+
+/* Resultado */
+#listaCarreras { display: grid; gap: 10px; }
+.carrera { background: #fff; border-radius: 14px; padding: 14px 16px; box-shadow: 0 1px 3px rgb(0 0 0 / .06); }
+.carrera small { display: inline-block; font-size: 12px; font-weight: 700; color: var(--azul-2); background: #e6e9f7; padding: 2px 8px; border-radius: 6px; margin-bottom: 4px; }
+.carrera p { font-size: 16px; font-weight: 600; }
+.grupo { font-size: 14px; color: var(--gris); margin-top: 6px; }

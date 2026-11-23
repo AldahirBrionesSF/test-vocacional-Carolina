@@ -1,0 +1,8 @@
+{
+  "appId": "mx.carolina.testvocacional",
+  "appName": "Test Vocacional LSM",
+  "webDir": "dist",
+  "android": {
+    "allowMixedContent": false
+  }
+}

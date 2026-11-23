@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#1b2a6b" />
+    <title>Test Vocacional en Señas</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <!-- INICIO -->
+    <section id="inicio" class="pantalla activa">
+      <div class="contenido">
+        <p class="eyebrow">Universidad Carolina</p>
+        <h1>Test vocacional<br /><span>en Lengua de Señas</span></h1>
+        <p class="lead">Responde 4 preguntas haciendo la seña de la letra frente a la cámara y descubre qué carreras van contigo.</p>
+
+        <div class="senas">
+          <div class="sena"><b>A</b><span>Puño cerrado, pulgar al costado</span></div>
+          <div class="sena"><b>B</b><span>Mano abierta, dedos juntos, pulgar doblado</span></div>
+          <div class="sena"><b>C</b><span>Mano curva en forma de C</span></div>
+        </div>
+        <p class="tip">Sostén la seña ~1 segundo hasta que se llene el círculo.</p>
+
+        <button id="btnComenzar" class="btn">Comenzar</button>
+        <p id="estadoCarga" class="estado"></p>
+      </div>
+    </section>
+
+    <!-- TEST -->
+    <section id="test" class="pantalla">
+      <div class="camara">
+        <video id="video" playsinline muted autoplay></video>
+        <canvas id="lienzo"></canvas>
+        <div id="detectada" class="detectada">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="44" class="pista" />
+            <circle cx="50" cy="50" r="44" id="anillo" class="anillo" />
+          </svg>
+          <span id="letraDetectada">✋</span>
+        </div>
+        <button id="btnDebug" class="debug-btn" title="Modo ajuste">🔧</button>
+        <pre id="debug" class="debug oculto"></pre>
+      </div>
+
+      <div class="panel">
+        <div class="progreso"><div id="barra"></div></div>
+        <p id="numPregunta" class="eyebrow"></p>
+        <h2 id="textoPregunta"></h2>
+        <div id="opciones" class="opciones"></div>
+      </div>
+    </section>
+
+    <!-- RESULTADO -->
+    <section id="resultado" class="pantalla">
+      <div class="contenido">
+        <p class="eyebrow">Tu resultado</p>
+        <h1 id="areaPrincipal"></h1>
+        <p id="areaSecundaria" class="lead"></p>
+        <div id="listaCarreras"></div>
+        <button id="btnReiniciar" class="btn">Hacer el test otra vez</button>
+      </div>
+    </section>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
