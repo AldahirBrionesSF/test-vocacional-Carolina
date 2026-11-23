@@ -19,7 +19,6 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - uses: android-actions/setup-android@v3
 
       - run: npm ci || npm install
       - name: Crear proyecto Android (si no existe)
